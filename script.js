@@ -100,8 +100,55 @@ function randomBetween () {
   - Replace it with a placeholder message like "Output cleared."
 */
 function clearOutput () {
-  // TODO: Write your code here
+  render("Output cleared.")
 }
+
+// pg title 
+function changePageTitle() {
+  const title = document.getElementById('pageTitle')
+  title.textContent = "Chris's JS Demo "
+  render("<p>Page title changed!</p>")
+}
+
+
+//background
+function randomBackgroundColor() {
+  const outBox = document.getElementById('out')
+
+ 
+  const randomColor = "#" + Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, "0")
+
+ 
+  outBox.style.backgroundColor = randomColor
+
+  
+  render(`<p>Background color changed to: <strong>${randomColor}</strong></p>`)
+}
+
+
+// number 
+function doubleNumber() {
+  
+  const input = prompt("Enter a number to double:")
+
+  
+  const num = parseFloat(input)
+
+ 
+  if (isNaN(num)) {
+    render("<p class='text-danger'>That is not a valid number!</p>")
+    return
+  }
+
+
+  const doubled = num * 2
+
+
+  render(`<p>The number <strong>${num}</strong> doubled is <strong>${doubled}</strong>.</p>`)
+}
+
 
 // ---- Event listeners for the demo buttons ----
 document.getElementById('btnGreet').addEventListener('click', greet)
@@ -109,6 +156,17 @@ document.getElementById('btnAvg').addEventListener('click', averageNumbers)
 document.getElementById('btnTime').addEventListener('click', timeOfDay)
 document.getElementById('btnRandom').addEventListener('click', randomBetween)
 document.getElementById('btnClear').addEventListener('click', clearOutput)
+document.getElementById('btnChangeTitle').addEventListener('click', changePageTitle)
+document.getElementById('btnRandomBg').addEventListener('click', randomBackgroundColor)
+document.getElementById('btnDouble').addEventListener('click', doubleNumber)
+
+
+
+
+
+
+
+
 
 /* 
   ------------------------------------------
